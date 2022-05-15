@@ -54,7 +54,7 @@ public class NotesMySQLDao implements NotesDao {
         return notes;
     }
 
-    public boolean update(String currentValue,Note newNote) {
+    public boolean update(Note currentNote,Note newNote) {
         Connection connection=null;
         PreparedStatement preparedStatement = null;
         try{
@@ -62,7 +62,7 @@ public class NotesMySQLDao implements NotesDao {
             connection.setAutoCommit(false);
             String updateString="UPDATE my_notes SET note = ? where note=?";
             preparedStatement = connection.prepareStatement(updateString);
-            preparedStatement.setString(2,currentValue);
+            preparedStatement.setString(2,currentNote.getNote());
             preparedStatement.setString(1,newNote.getNote());
 
             if(preparedStatement.executeUpdate()==1){
@@ -81,14 +81,14 @@ public class NotesMySQLDao implements NotesDao {
 
     }
 
-    public boolean delete(String currentValue) {
+    public boolean delete(Note currentNote) {
         Connection connection=null;
         PreparedStatement preparedStatement=null;
         try{
             String deleteQuery="delete from my_notes where note=?";
             connection=DatabaseManager.getConnection();
             preparedStatement=connection.prepareStatement(deleteQuery);
-            preparedStatement.setString(1,currentValue);
+            preparedStatement.setString(1,currentNote.getNote());
             if(preparedStatement.executeUpdate()==1){
                 connection.close();
                 return true;

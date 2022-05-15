@@ -9,7 +9,7 @@ public interface NotesDao {
 
     boolean create(Note note);
     List read();
-    boolean update(String currentValue,Note newNote);
-    boolean delete(String currentValue);
+    boolean update(Note currentNote,Note newNote);
+    boolean delete(Note deleteNote);
 
 }
