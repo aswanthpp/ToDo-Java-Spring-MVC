@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class TaskManagementService implements TaskManagement {
-    //    private NotesDao notesDao=new NotesMySQLDao();
-    private NotesDao notesDao = new NotesMemoryDao();
+        private NotesDao notesDao=new NotesMySQLDao();
+//    private NotesDao notesDao = new NotesMemoryDao();
 
     public boolean addNotes(Note note) {
         return this.notesDao.create(note);

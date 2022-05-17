@@ -6,12 +6,12 @@ public class TestMySQLConnection {
     public void testConnection()   {
         Connection con = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DatabaseManager.getConnection();
             System.out.println("Connection is successful !!!!!");
         } catch(Exception e) {
             e.printStackTrace();
         }
     }
-
 }
+
