@@ -38,6 +38,5 @@ public class Main {
         notes.forEach((x) -> System.out.println(x.getNote()));
 
 
-//        System.out.println(notes.get(0).getNote());
     }
 }
